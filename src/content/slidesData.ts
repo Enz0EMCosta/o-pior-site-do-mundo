@@ -10,11 +10,9 @@ export interface SillyTag {
 export interface IntroSlideContent {
   id: number;
   route: string;
-  targetDateISO: string;
   silly: {
     smallPresenterText: string;
     giant3DText: string;
-    countdownPrefix: string;
     tags: SillyTag[];
   };
   craft: {
@@ -29,11 +27,9 @@ export interface IntroSlideContent {
 export const introSlideData: IntroSlideContent = {
   id: 1,
   route: '/',
-  targetDateISO: '2026-11-23T14:40:00-03:00',
   silly: {
     smallPresenterText: 'ENZO E PEDRO APRESENTAM',
     giant3DText: 'O PIOR SITE DO MUNDO',
-    countdownPrefix: 'começa em:',
     tags: [
       {
         id: 'semac',

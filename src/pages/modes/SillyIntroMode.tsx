@@ -3,12 +3,10 @@ import styled from 'styled-components';
 import { useGSAP } from '@gsap/react';
 import type { IntroSlideContent } from '../../content/slidesData';
 import { animate3DSpinningText } from '../../animations/slideAnimations';
-import { CountdownTimer } from '../../components/CountdownTimer';
 import { UglyTagList } from '../../components/UglyTagList';
 
 interface SillyIntroModeProps {
   content: IntroSlideContent;
-  isPreview: boolean;
   onStart: () => void;
 }
 
@@ -90,7 +88,7 @@ const StartButton = styled.button`
   }
 `;
 
-export function SillyIntroMode({ content, isPreview, onStart }: SillyIntroModeProps) {
+export function SillyIntroMode({ content, onStart }: SillyIntroModeProps) {
   const spinningTextRef = useRef<HTMLHeadingElement | null>(null);
 
   useGSAP(() => {
@@ -111,15 +109,7 @@ export function SillyIntroMode({ content, isPreview, onStart }: SillyIntroModePr
 
       <UglyTagList tags={content.silly.tags} />
 
-      {isPreview ? (
-        <StartButton onClick={onStart}>Começar</StartButton>
-      ) : (
-        <CountdownTimer
-          targetDateISO={content.targetDateISO}
-          prefix={content.silly.countdownPrefix}
-          whenExpired={<StartButton onClick={onStart}>Começar</StartButton>}
-        />
-      )}
+      <StartButton onClick={onStart}>Começar</StartButton>
     </SillyWrapper>
   );
 }

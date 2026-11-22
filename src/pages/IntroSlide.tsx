@@ -22,7 +22,6 @@ export function IntroSlide() {
     return (
       <SillyIntroMode
         content={introSlideData}
-        isPreview={import.meta.env.DEV}
         onStart={() => setStarted(true)}
       />
     );
